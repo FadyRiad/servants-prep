@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>تسجيل حضور كشوف إعداد الخدام</title>
+    <title>تسجيل حضور إعداد الخدام</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -135,8 +135,8 @@
     </div>
 
     <script>
-      // الرابط المسئول عن ترحيل البيانات السحابية
-const BACKEND_API_URL = "https://script.google.com/macros/s/AKfycbxIYmF0p_CrS9AD9ccQ8YM4LR_Vn7EbjudXEV4DyS2LtJzbTK1Ol8PEO7If14YXoEAYkQ/exec";
+      // تم تحديث الرابط بنجاح إلى الرابط الجديد الخاص بك
+      const BACKEND_API_URL = "https://script.google.com/a/macros/std.sci.cu.edu.eg/s/AKfycbzPdvtYfP5PK0fcVy6vTnFIvoNEuojtHyQdNMC132xE1YttxMp7RX9teizJJ76ATbyHrQ/exec";
       
       const form = document.getElementById("trackingForm");
       const khademNameInput = document.getElementById("khademName");
@@ -153,12 +153,11 @@ const BACKEND_API_URL = "https://script.google.com/macros/s/AKfycbxIYmF0p_CrS9AD
 
       const arabicNamePattern = /^[\u0600-\u06FF\s]+$/;
 
-      // فحص ميعاد الخدمة بتوقيت القاهرة
       function evaluateLocalServiceTime() {
         const now = new Date();
         const localizedCairoStr = now.toLocaleString("en-US", { timeZone: "Africa/Cairo" });
         const cairoDate = new Date(localizedCairoStr);
-        const activeDay = cairoDate.getDay(); // 5 = الجمعة
+        const activeDay = cairoDate.getDay(); 
         const activeHour = cairoDate.getHours();
 
         const isOfficialFriday = activeDay === 5;
@@ -173,7 +172,6 @@ const BACKEND_API_URL = "https://script.google.com/macros/s/AKfycbxIYmF0p_CrS9AD
 
       evaluateLocalServiceTime();
 
-      // فحص الحروف أثناء الكتابة
       khademNameInput.addEventListener("input", () => {
         const currentInput = khademNameInput.value;
         if (currentInput.trim() === "") {
@@ -217,7 +215,6 @@ const BACKEND_API_URL = "https://script.google.com/macros/s/AKfycbxIYmF0p_CrS9AD
         }, 300);
       });
 
-      // إرسال الاستمارة
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         const sanitizedName = khademNameInput.value.trim();
@@ -235,7 +232,7 @@ const BACKEND_API_URL = "https://script.google.com/macros/s/AKfycbxIYmF0p_CrS9AD
         submitBtn.disabled = true;
         submitBtn.classList.add("opacity-50", "cursor-not-allowed");
         submitBtn.innerHTML = `
-        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/xl" fill="none" viewBox="0 0 24 24">
           <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
           <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
         </svg>
@@ -268,7 +265,7 @@ const BACKEND_API_URL = "https://script.google.com/macros/s/AKfycbxIYmF0p_CrS9AD
           const data = await response.json();
 
           if (data.status === "success") {
-            triggerSystemFeedback(true, "تم التسجيل", data.message);
+            triggerSystemFeedback(true, "تم التسجيل بنجاح!", data.message);
             form.reset();
           } else {
             triggerSystemFeedback(false, "حصلت مشكلة", data.message);
