@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="ar" dir="rtl" class="h-full bg-slate-50">
+<html lang="ar" dir="rtl" class="h-full bg-[#FAFDFA]">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>تسجيل حضور إعداد الخدام</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <!-- خط Cairo الممتاز ومريح جداً للعين -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -15,6 +16,15 @@
             fontFamily: {
               cairo: ["Cairo", "sans-serif"],
             },
+            colors: {
+              coptic: {
+                burgundy: "#5A0C1E",    // اللون البرجندي الكنسي العميق
+                burgundyHover: "#420815",
+                gold: "#C69B46",        // الذهبي الدافئ للزخارف واللمسات
+                goldLight: "#FBF7ED",   // خلفية كريمي مريحة
+                slateDark: "#2D3142"
+              }
+            }
           },
         },
       };
@@ -22,112 +32,132 @@
     <style>
       body {
         font-family: "Cairo", sans-serif;
+        background-color: #FDFBF7; /* خلفية هادية ومريحة للعين */
       }
     </style>
   </head>
-  <body class="flex flex-col min-h-full py-6 px-4 sm:px-6 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <div class="flex justify-center mb-3">
-        <div class="w-20 h-20 rounded-full bg-indigo-950 flex items-center justify-center text-amber-400 shadow-md">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12">
+  <body class="flex flex-col min-h-full py-8 px-4 sm:px-6 lg:px-8 items-center justify-center">
+    
+    <div class="sm:mx-auto sm:w-full sm:max-w-md text-center">
+      <!-- الأيقونة بهوية قبطية: دايرة برجندي محددة بذهب وبداخلها شكل الهيكل/الكنيسة البسيط -->
+      <div class="flex justify-center mb-4">
+        <div class="w-24 h-24 rounded-full bg-coptic-burgundy border-4 border-coptic-gold flex items-center justify-center text-coptic-gold shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-14 h-14">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.33L12 4.5 4.5 10.33V21h15z" />
           </svg>
         </div>
       </div>
-      <h2 class="text-center text-2xl font-bold tracking-tight text-slate-900">
+      
+      <h2 class="text-3xl font-bold text-coptic-burgundy tracking-wide">
         ثانية إعداد الخدام
       </h2>
-      <p class="mt-2 text-center text-sm font-semibold text-indigo-900 italic">
-        "وَلْتَصِرْ كُلُّ أُمُورِكُمْ فِي مَحَبَّةٍ" (١ كو ١٦ : ١٤)
+      <p class="mt-2 text-sm font-medium text-coptic-gold italic">
+        "ولْتَصِرْ كُلُّ أُمُورِكُمْ فِي مَحَبَّةٍ" (١ كو ١٦ : ١٤)
       </p>
     </div>
 
-    <div class="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
-      <div class="bg-white py-8 px-4 shadow-xl rounded-2xl border border-slate-100 sm:px-10">
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md w-full">
+      <div class="bg-white py-8 px-6 shadow-xl rounded-3xl border border-coptic-gold/20 sm:px-10 relative overflow-hidden">
         
-        <div id="serviceHoursBanner" class="hidden mb-6 p-4 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-xs font-semibold">
+        <!-- خط زخرفي علوي رفيع يدي روح كنسية هادية -->
+        <div class="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-coptic-gold via-coptic-burgundy to-coptic-gold"></div>
+
+        <!-- بنر تسجيل خارج المواعيد بالعامية البسيطة -->
+        <div id="serviceHoursBanner" class="hidden mb-6 p-4 bg-amber-50/70 border border-coptic-gold/30 rounded-2xl text-amber-900 text-xs font-medium">
           <div class="flex items-start">
-            <span class="text-lg mr-1 ml-2">⏳</span>
+            <span class="text-base mr-1 ml-2">⏳</span>
             <div>
-              <span class="font-bold">خد بالك:</span> أنت بتسجل بره الميعاد الرسمي للخدمة (الجمعة ٢م - ٥م)، حضورك هيتسجل برضه بس كمدخل متأخر.
+              <span class="font-bold text-coptic-burgundy">خد بالك يا بطل:</span> أنت بتسجل بره الميعاد الرسمي للخدمة (الجمعة ٢م - ٥م)، حضورك هيتسجل عادي جداً بس هينزل كمدخل متأخر.
             </div>
           </div>
         </div>
 
-        <form id="trackingForm" class="space-y-6" novalidate>
+        <form id="trackingForm" class="space-y-5" novalidate>
+          
+          <!-- حقل الاسم -->
           <div>
-            <label for="khademName" class="block text-sm font-bold text-slate-800">الاسم بالكامل</label>
-            <div class="mt-2 relative">
-              <input id="khademName" name="khademName" type="text" required placeholder="اكتب اسمك ثلاثي أو رباعي..." class="block w-full rounded-xl border border-slate-300 py-3.5 px-4 text-slate-900 shadow-sm placeholder-slate-400 focus:border-indigo-600 focus:ring-indigo-600 text-sm" />
+            <label for="khademName" class="block text-sm font-bold text-coptic-burgundy mb-2">الاسم بالكامل</label>
+            <div class="relative">
+              <input id="khademName" name="khademName" type="text" required placeholder="اكتب اسمك ثلاثي أو رباعي بالعربي..." class="block w-full rounded-2xl border border-slate-200 py-3.5 px-4 text-slate-900 shadow-sm placeholder-slate-400 focus:border-coptic-burgundy focus:ring-coptic-burgundy text-sm bg-coptic-goldLight/30 transition-all duration-200" />
             </div>
 
+            <!-- تحذير الاسم بالعامية اللطيفة -->
             <div id="validationWarning" class="hidden mt-2 text-xs text-red-600 font-semibold">
-              ❌ يرجى كتابة الاسم بالحروف العربية والمسافات بس.
+              ⚠️ اكتب الاسم بالحروف العربي والمسافات بس عشان السيستم يفهمك صح.
             </div>
 
-            <div class="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-center">
-              <span class="text-amber-600 mr-1 ml-2 text-sm">⚠️</span>
-              <span class="text-xs text-amber-900 font-bold">
-                اكتب اسمك بالعربي علشان الشيت يتنظم صح.
+            <div class="mt-3 p-3 bg-coptic-goldLight border border-coptic-gold/20 rounded-xl flex items-center">
+              <span class="text-xs text-coptic-burgundy font-medium leading-relaxed">
+                ✨ يا ريت نكتب الاسم باللغة العربية عشان نساعد لجنة النظام في ترتيب الشيت بسهولة.
               </span>
             </div>
           </div>
 
-          <hr class="border-slate-100 my-4" />
+          <div class="relative py-2">
+            <div class="absolute inset-0 flex items-center" aria-hidden="true">
+              <div class="w-full border-t border-slate-100"></div>
+            </div>
+          </div>
 
+          <!-- بنود الالتزام الروحي (تنظيم بسيط، بدون إيموجيز، خط مريح ونظيف) -->
           <div>
-            <span class="block text-sm font-bold text-slate-800 mb-3">بنود الالتزام والقانون الروحي:</span>
-            <div class="space-y-3">
+            <span class="block text-sm font-bold text-coptic-burgundy mb-3">بنود الالتزام الروحي للأسبوع الحالي:</span>
+            <div class="grid grid-cols-2 gap-3">
               
-              <div class="flex items-center p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition duration-150">
-                <input type="checkbox" id="liturgy" class="w-5 h-5 text-indigo-950 border-slate-300 rounded focus:ring-indigo-600 cursor-pointer" />
-                <label for="liturgy" class="right-2 pr-3 select-none text-sm font-semibold text-slate-700 cursor-pointer w-full py-1">
-                   القداس  ⛪
+              <!-- القداس -->
+              <div class="flex items-center p-3 rounded-xl border border-slate-200 hover:border-coptic-gold/40 hover:bg-coptic-goldLight/40 transition duration-200 cursor-pointer">
+                <input type="checkbox" id="liturgy" class="w-4 h-4 text-coptic-burgundy border-slate-300 rounded focus:ring-coptic-burgundy cursor-pointer accent-[#5A0C1E]" />
+                <label for="liturgy" class="pr-2.5 select-none text-sm font-medium text-slate-700 cursor-pointer w-full">
+                  القداس الإلهي
                 </label>
               </div>
 
-              <div class="flex items-center p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition duration-150">
-                <input type="checkbox" id="tools" class="w-5 h-5 text-indigo-950 border-slate-300 rounded focus:ring-indigo-600 cursor-pointer" />
-                <label for="tools" class="right-2 pr-3 select-none text-sm font-semibold text-slate-700 cursor-pointer w-full py-1">
-                   الأدوات   📝
+              <!-- الأدوات -->
+              <div class="flex items-center p-3 rounded-xl border border-slate-200 hover:border-coptic-gold/40 hover:bg-coptic-goldLight/40 transition duration-200 cursor-pointer">
+                <input type="checkbox" id="tools" class="w-4 h-4 text-coptic-burgundy border-slate-300 rounded focus:ring-coptic-burgundy cursor-pointer accent-[#5A0C1E]" />
+                <label for="tools" class="pr-2.5 select-none text-sm font-medium text-slate-700 cursor-pointer w-full">
+                  إحضار الأدوات
                 </label>
               </div>
 
-              <div class="flex items-center p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition duration-150">
-                <input type="checkbox" id="confession" class="w-5 h-5 text-indigo-950 border-slate-300 rounded focus:ring-indigo-600 cursor-pointer" />
-                <label for="confession" class="right-2 pr-3 select-none text-sm font-semibold text-slate-700 cursor-pointer w-full py-1">
-                    الاعتراف   📑
+              <!-- الاعتراف -->
+              <div class="flex items-center p-3 rounded-xl border border-slate-200 hover:border-coptic-gold/40 hover:bg-coptic-goldLight/40 transition duration-200 cursor-pointer">
+                <input type="checkbox" id="confession" class="w-4 h-4 text-coptic-burgundy border-slate-300 rounded focus:ring-coptic-burgundy cursor-pointer accent-[#5A0C1E]" />
+                <label for="confession" class="pr-2.5 select-none text-sm font-medium text-slate-700 cursor-pointer w-full">
+                  جلسة الاعتراف
                 </label>
               </div>
 
-              <div class="flex items-center p-3.5 rounded-xl border border-slate-200 hover:bg-slate-50 transition duration-150">
-                <input type="checkbox" id="fasting" class="w-5 h-5 text-indigo-950 border-slate-300 rounded focus:ring-indigo-600 cursor-pointer" />
-                <label for="fasting" class="right-2 pr-3 select-none text-sm font-semibold text-slate-700 cursor-pointer w-full py-1">
-                  صايم   🐟
+              <!-- الصوم -->
+              <div class="flex items-center p-3 rounded-xl border border-slate-200 hover:border-coptic-gold/40 hover:bg-coptic-goldLight/40 transition duration-200 cursor-pointer">
+                <input type="checkbox" id="fasting" class="w-4 h-4 text-coptic-burgundy border-slate-300 rounded focus:ring-coptic-burgundy cursor-pointer accent-[#5A0C1E]" />
+                <label for="fasting" class="pr-2.5 select-none text-sm font-medium text-slate-700 cursor-pointer w-full">
+                  الالتزام بالصوم
                 </label>
               </div>
 
             </div>
           </div>
 
-          <div>
-            <button type="submit" id="submitBtn" class="flex w-full justify-center rounded-xl bg-indigo-950 py-3.5 px-4 text-sm font-bold text-white shadow-lg hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all duration-200">
-              تسجيل الحضور  
+          <div class="pt-2">
+            <button type="submit" id="submitBtn" class="flex w-full justify-center rounded-2xl bg-coptic-burgundy py-3.5 px-4 text-sm font-bold text-white shadow-md hover:bg-coptic-burgundyHover focus:outline-none focus:ring-2 focus:ring-coptic-gold transition-all duration-300 tracking-wide">
+              تسجيل حضورك الروحي
             </button>
           </div>
         </form>
       </div>
     </div>
 
-    <div id="feedbackOverlay" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-100 transform scale-95 opacity-0 transition-all duration-300" id="feedbackCard">
+    <!-- المودال والـ Overlays بتحديثات الألوان واللغة العامية -->
+    <div id="feedbackOverlay" class="hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm flex items-center justify-center p-4 z-50">
+      <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-coptic-gold/20 transform scale-95 opacity-0 transition-all duration-300" id="feedbackCard">
         <div class="text-center">
-          <div id="feedbackIcon" class="mx-auto flex h-12 w-12 items-center justify-center rounded-full mb-4"></div>
-          <h3 id="feedbackTitle" class="text-lg font-bold text-slate-950"></h3>
-          <p id="feedbackMessage" class="mt-2 text-sm text-slate-500 leading-relaxed font-semibold"></p>
+          <div id="feedbackIcon" class="mx-auto flex h-14 w-14 items-center justify-center rounded-full mb-4 border-2"></div>
+          <h3 id="feedbackTitle" class="text-xl font-bold text-slate-950"></h3>
+          <p id="feedbackMessage" class="mt-2 text-sm text-slate-600 leading-relaxed font-medium"></p>
           <div class="mt-6">
-            <button id="feedbackClose" class="inline-flex w-full justify-center rounded-xl bg-indigo-950 px-4 py-2.5 text-sm font-bold text-white shadow hover:bg-indigo-900 focus:outline-none">
-              موافق
+            <button id="feedbackClose" class="inline-flex w-full justify-center rounded-xl bg-coptic-burgundy px-4 py-2.5 text-sm font-bold text-white shadow hover:bg-coptic-burgundyHover focus:outline-none">
+              تمام وجاهز
             </button>
           </div>
         </div>
@@ -135,7 +165,7 @@
     </div>
 
     <script>
-      // تم تحديث الرابط بنجاح إلى الرابط الشخصي الفعال الخاص بك
+      // المحافظة تماماً على رابط الـ API الفعال الخاص بك دون أي تعديل
       const BACKEND_API_URL = "https://script.google.com/macros/s/AKfycbzMrWgf97gvHYUZFfqYSphWhp6yb0SXMbvIxuKV5FFS0E_2_FNDzVYKFmVOBjbLIRvW/exec";
       
       const form = document.getElementById("trackingForm");
@@ -193,10 +223,10 @@
         modalMsg.innerText = description;
 
         if (success) {
-          modalIcon.className = "mx-auto flex h-12 w-12 items-center justify-center rounded-full mb-4 bg-emerald-100 text-emerald-600";
+          modalIcon.className = "mx-auto flex h-14 w-14 items-center justify-center rounded-full mb-4 bg-emerald-50 border-emerald-500 text-emerald-600";
           modalIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>`;
         } else {
-          modalIcon.className = "mx-auto flex h-12 w-12 items-center justify-center rounded-full mb-4 bg-red-100 text-red-600";
+          modalIcon.className = "mx-auto flex h-14 w-14 items-center justify-center rounded-full mb-4 bg-red-50 border-red-500 text-red-600";
           modalIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>`;
         }
 
@@ -220,12 +250,12 @@
         const sanitizedName = khademNameInput.value.trim();
 
         if (sanitizedName === "") {
-          triggerSystemFeedback(false, "الاسم ناقص", "يرجى كتابة اسمك بالكامل قبل ما تدوس تسجيل.");
+          triggerSystemFeedback(false, "نسيت الاسم!", "لازم تكتب اسمك الأول يا بطل عشان نقدر نسجلك في الحضور.");
           return;
         }
 
         if (!arabicNamePattern.test(sanitizedName)) {
-          triggerSystemFeedback(false, "الاسم مش مظبوط", "يرجى كتابة الاسم باللغة العربية بس بدون رموز ثانية.");
+          triggerSystemFeedback(false, "الاسم مش مظبوط", "اكتب اسمك بالحروف العربي بس من غير أرقام أو حروف إنجليزي.");
           return;
         }
 
@@ -259,23 +289,23 @@
           });
 
           if (!response.ok) {
-            throw new Error("مش قادرين نوصل للسيرفر حالياً، تأكد من النت.");
+            throw new Error("مش عارفين نوصل للسيرفر حالياً، جرب تتأكد من النت في موبايلك.");
           }
 
           const data = await response.json();
 
           if (data.status === "success") {
-            triggerSystemFeedback(true, "تم التسجيل بنجاح!", data.message);
+            triggerSystemFeedback(true, "تم التسجيل بنجاح! ✨", data.message);
             form.reset();
           } else {
-            triggerSystemFeedback(false, "حصلت مشكلة", data.message);
+            triggerSystemFeedback(false, "حصلت مشكلة بسيطة", data.message);
           }
         } catch (err) {
-          triggerSystemFeedback(false, "مشكلة في الشبكة", err.message || "تأكد من اتصال النت على موبايلك وجرب تاني.");
+          triggerSystemFeedback(false, "مشكلة في الشبكة", err.message || "اتأكد إن باقة النت أو الواي فاي شغالين عندك كويس وجرب تاني.");
         } finally {
           submitBtn.disabled = false;
           submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
-          submitBtn.innerText = "تسجيل الحضور الروحي بنجاح";
+          submitBtn.innerText = "تسجيل حضورك الروحي";
         }
       });
     </script>
