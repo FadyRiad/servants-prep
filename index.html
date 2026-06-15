@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="h-full bg-slate-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل حضور كشوف إعداد الخدام</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              cairo: ["Cairo", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+      }
+      .custom-checkbox:checked + label.box-indicator {
+        background-color: #1e3a8a;
+        border-color: #1e3a8a;
+      }
+      .custom-checkbox:checked + label.check-icon {
+        transform: scale(1);
+      }
+    </style>
+  </head>
+  <body class="flex flex-col min-h-full py-6 px-4 sm:px-6 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="flex justify-center mb-4">
+        <div
+          class="w-20 h-20 rounded-full bg-indigo-950 flex items-center justify-center text-amber-400 shadow-md"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-12 h-12"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.33L12 4.5 4.5 10.33V21h15z"
+            />
+          </svg>
+        </div>
+      </div>
+      <h2 class="text-center text-2xl font-bold tracking-tight text-slate-900">
+        ثانية إعداد الخدام
+      </h2>
+      <p class="mt-1 text-center text-sm text-slate-500">
+        
+      </p>
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div
+        class="bg-white py-8 px-4 shadow-xl rounded-2xl border border-slate-100 sm:px-10"
+      >
+        <div
+          id="serviceHoursBanner"
+          class="hidden mb-6 p-4 bg-amber-50 border border-amber-200 rounded-lg text-amber-800 text-xs"
+        >
+          <div class="flex items-start">
+            <span class="text-lg mr-1 ml-2">⏳</span>
+            <div>
+              <span class="font-bold">تنبيه مواعيد الخدمة:</span>
+              يقوم النظام حالياً برصد الحضور الروحي خارج النافذة الرسمية (الجمعة
+              ٢م - ٥م بتوقيت القاهرة). سيتم تسجيل البيانات كمدخل متأخر.
+            </div>
+          </div>
+        </div>
+
+        <form id="trackingForm" class="space-y-6" novalidate>
+          <div>
+            <label
+              for="khademName"
+              class="block text-sm font-semibold text-slate-800"
+              >الاسم بالكامل</label
+            >
+            <div class="mt-2 relative">
+              <input
+                id="khademName"
+                name="khademName"
+                type="text"
+                required
+                class="block w-full rounded-xl border border-slate-300 py-3.5 px-4 text-slate-900 shadow-sm placeholder-slate-400 focus:border-indigo-600 focus:ring-indigo-600 text-sm"
+              />
+            </div>
+
+            <div
+              id="validationWarning"
+              class="hidden mt-2 text-xs text-red-600 font-semibold"
+            >
+              ❌ خطأ: يرجى كتابة الاسم باستخدام الحروف العربية والمسافات فقط.
+            </div>
+
+            <div
+              class="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-start"
+            >
+              <span class="text-amber-600 mr-1 ml-2 text-sm">⚠️</span>
+              <span
+                class="text-xs text-amber-900 leading-relaxed font-semibold"
+              >
+                اكتب اسمك بالعربي.
+              </span>
+            </div>
+          </div>
+
+          <hr class="border-slate-100 my-4" />
+
+          <div>
+            <span class="block text-sm font-semibold text-slate-800 mb-3"
+              >بنود الالتزام والقانون الروحي</span
+            >
+            <div class="space-y-3">
+              <div class="relative flex items-start">
+                <input
+                  type="checkbox"
+                  id="liturgy"
+                  class="custom-checkbox hidden"
+                />
+                <label
+                  for="liturgy"
+                  class="flex items-center cursor-pointer select-none text-sm text-slate-700 w-full p-3.5 rounded-xl border border-slate-100 hover:bg-slate-50 transition duration-150"
+                >
+                  <div
+                    class="box-indicator w-5 h-5 rounded border border-slate-300 flex items-center justify-center mr-1 ml-3 transition duration-150"
+                  >
+                    <span
+                      class="check-icon transform scale-0 text-white transition duration-150 text-xs"
+                      >✓</span
+                    >
+                  </div>
+                  <span>قداس ⛪</span>
+                </label>
+              </div>
+
+              <div class="relative flex items-start">
+                <input
+                  type="checkbox"
+                  id="tools"
+                  class="custom-checkbox hidden"
+                />
+                <label
+                  for="tools"
+                  class="flex items-center cursor-pointer select-none text-sm text-slate-700 w-full p-3.5 rounded-xl border border-slate-100 hover:bg-slate-50 transition duration-150"
+                >
+                  <div
+                    class="box-indicator w-5 h-5 rounded border border-slate-300 flex items-center justify-center mr-1 ml-3 transition duration-150"
+                  >
+                    <span
+                      class="check-icon transform scale-0 text-white transition duration-150 text-xs"
+                      >✓</span
+                    >
+                  </div>
+                  <span>الأدوات كاملة 📝</span>
+                </label>
+              </div>
+
+              <div class="relative flex items-start">
+                <input
+                  type="checkbox"
+                  id="confession"
+                  class="custom-checkbox hidden"
+                />
+                <label
+                  for="confession"
+                  class="flex items-center cursor-pointer select-none text-sm text-slate-700 w-full p-3.5 rounded-xl border border-slate-100 hover:bg-slate-50 transition duration-150"
+                >
+                  <div
+                    class="box-indicator w-5 h-5 rounded border border-slate-300 flex items-center justify-center mr-1 ml-3 transition duration-150"
+                  >
+                    <span
+                      class="check-icon transform scale-0 text-white transition duration-150 text-xs"
+                      >✓</span
+                    >
+                  </div>
+                  <span> الاعتراف 📑</span>
+                </label>
+              </div>
+
+              <div class="relative flex items-start">
+                <input
+                  type="checkbox"
+                  id="fasting"
+                  class="custom-checkbox hidden"
+                />
+                <label
+                  for="fasting"
+                  class="flex items-center cursor-pointer select-none text-sm text-slate-700 w-full p-3.5 rounded-xl border border-slate-100 hover:bg-slate-50 transition duration-150"
+                >
+                  <div
+                    class="box-indicator w-5 h-5 rounded border border-slate-300 flex items-center justify-center mr-1 ml-3 transition duration-150"
+                  >
+                    <span
+                      class="check-icon transform scale-0 text-white transition duration-150 text-xs"
+                      >✓</span
+                    >
+                  </div>
+                  <span>صيام 🐟</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              id="submitBtn"
+              class="flex w-full justify-center rounded-xl bg-indigo-950 py-3.5 px-4 text-sm font-semibold text-white shadow-lg hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-200"
+            >
+              تسجيل الحضور 
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div
+      id="feedbackOverlay"
+      class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+    >
+      <div
+        class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-100 transform scale-95 opacity-0 transition-all duration-300"
+        id="feedbackCard"
+      >
+        <div class="text-center">
+          <div
+            id="feedbackIcon"
+            class="mx-auto flex h-12 w-12 items-center justify-center rounded-full mb-4"
+          ></div>
+          <h3 id="feedbackTitle" class="text-lg font-bold text-slate-950"></h3>
+          <p
+            id="feedbackMessage"
+            class="mt-2 text-sm text-slate-500 leading-relaxed"
+          ></p>
+          <div class="mt-6">
+            <button
+              id="feedbackClose"
+              class="inline-flex w-full justify-center rounded-xl bg-indigo-950 px-4 py-2.5 text-sm font-semibold text-white shadow hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              موافق
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Replace this string with the actual Web App URL copied during backend deployment
+      const BACKEND_API_URL =
+        "https://script.google.com/macros/s/AKfycbxIYmF0p_CrS9AD9ccQ8YM4LR_Vn7EbjudXEV4DyS2LtJzbTK1Ol8PEO7If14YXoEAYkQ/exec";
+
+      const form = document.getElementById("trackingForm");
+      const khademNameInput = document.getElementById("khademName");
+      const warningText = document.getElementById("validationWarning");
+      const submitBtn = document.getElementById("submitBtn");
+      const hoursWarningBanner = document.getElementById("serviceHoursBanner");
+
+      const overlay = document.getElementById("feedbackOverlay");
+      const card = document.getElementById("feedbackCard");
+      const modalTitle = document.getElementById("feedbackTitle");
+      const modalMsg = document.getElementById("feedbackMessage");
+      const modalIcon = document.getElementById("feedbackIcon");
+      const modalButton = document.getElementById("feedbackClose");
+
+      // Arabic Character + Spaces Validation Regular Expression
+      const arabicNamePattern = /^[\u0600-\u06FF\s]+$/;
+
+      // Checks current client-side browser time against Egypt standard hours
+      function evaluateLocalServiceTime() {
+        const now = new Date();
+        // Translate client date-time context to Egypt timezone dynamically
+        const localizedCairoStr = now.toLocaleString("en-US", {
+          timeZone: "Africa/Cairo",
+        });
+        const cairoDate = new Date(localizedCairoStr);
+        const activeDay = cairoDate.getDay(); // 5 = Friday
+        const activeHour = cairoDate.getHours();
+
+        // Official window: Fridays between 2:00 PM and 5:00 PM
+        const isOfficialFriday = activeDay === 5;
+        const isOfficialHours = activeHour >= 14 && activeHour < 17;
+
+        if (!isOfficialFriday || !isOfficialHours) {
+          hoursWarningBanner.classList.remove("hidden");
+        } else {
+          hoursWarningBanner.classList.add("hidden");
+        }
+      }
+
+      // Initialize schedule audit on load
+      evaluateLocalServiceTime();
+
+      // Input-level input validation
+      khademNameInput.addEventListener("input", () => {
+        const currentInput = khademNameInput.value;
+        if (currentInput.trim() === "") {
+          warningText.classList.add("hidden");
+          khademNameInput.classList.remove(
+            "border-red-500",
+            "focus:ring-red-500",
+          );
+          return;
+        }
+        if (!arabicNamePattern.test(currentInput)) {
+          warningText.classList.remove("hidden");
+          khademNameInput.classList.add("border-red-500", "focus:ring-red-500");
+        } else {
+          warningText.classList.add("hidden");
+          khademNameInput.classList.remove(
+            "border-red-500",
+            "focus:ring-red-500",
+          );
+        }
+      });
+
+      // Handle feedback overlays
+      function triggerSystemFeedback(success, headline, description) {
+        modalTitle.innerText = headline;
+        modalMsg.innerText = description;
+
+        if (success) {
+          modalIcon.className =
+            "mx-auto flex h-12 w-12 items-center justify-center rounded-full mb-4 bg-emerald-100 text-emerald-600";
+          modalIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+        </svg>`;
+        } else {
+          modalIcon.className =
+            "mx-auto flex h-12 w-12 items-center justify-center rounded-full mb-4 bg-red-100 text-red-600";
+          modalIcon.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </svg>`;
+        }
+
+        overlay.classList.remove("hidden");
+        setTimeout(() => {
+          card.classList.remove("scale-95", "opacity-0");
+          card.classList.add("scale-100", "opacity-100");
+        }, 50);
+      }
+
+      modalButton.addEventListener("click", () => {
+        card.classList.add("scale-95", "opacity-0");
+        card.classList.remove("scale-100", "opacity-100");
+        setTimeout(() => {
+          overlay.classList.add("hidden");
+        }, 300);
+      });
+
+      // Form submission management
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const sanitizedName = khademNameInput.value.trim();
+
+        if (sanitizedName === "") {
+          triggerSystemFeedback(
+            false,
+            "بيانات مفقودة",
+            "يرجى كتابة اسم الخادم بالكامل قبل الضغط على زر الحفظ.",
+          );
+          return;
+        }
+
+        if (!arabicNamePattern.test(sanitizedName)) {
+          triggerSystemFeedback(
+            false,
+            "اسم غير صالح",
+            "يرجى تعديل الاسم المدخل وكتابته باللغة العربية والمسافات فقط دون استخدام لغات أخرى أو رموز.",
+          );
+          return;
+        }
+
+        // Transition into secure saving state to prevent duplicate calls
+        submitBtn.disabled = true;
+        submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+        submitBtn.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+       ...جاري الحفظ بأمان
+      `;
+
+        const payload = {
+          khademName: sanitizedName,
+          liturgy: document.getElementById("liturgy").checked,
+          tools: document.getElementById("tools").checked,
+          confession: document.getElementById("confession").checked,
+          fasting: document.getElementById("fasting").checked,
+        };
+
+        try {
+          // Simple request payload bypass is enforced via text/plain header
+          const response = await fetch(BACKEND_API_URL, {
+            method: "POST",
+            mode: "cors",
+            redirect: "follow",
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error(
+              "فشل في الاتصال بخادم قاعدة البيانات التابع للكنيسة.",
+            );
+          }
+
+          const data = await response.json();
+
+          if (data.status === "success") {
+            triggerSystemFeedback(true, "تم التسجيل", data.message);
+            form.reset();
+          } else {
+            triggerSystemFeedback(false, "تعذر التسجيل", data.message);
+          }
+        } catch (err) {
+          triggerSystemFeedback(
+            false,
+            "عطل في شبكة الاتصال",
+            err.message || "حدث خطأ غير متوقع بالمنظومة أثناء معالجة المدخلات.",
+          );
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("opacity-50", "cursor-not-allowed");
+          submitBtn.innerText = "تسجيل الحضور الروحي بنجاح";
+        }
+      });
+    </script>
+  </body>
+</html>
